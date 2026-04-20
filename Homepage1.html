@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSeries Streaming </title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        header {
+            background-color: #000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: red;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+        .hero {
+            height: 90vh;
+            background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: red;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: darkred;
+        }
+
+        .section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #222;
+            width: 200px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+<script>
+function searchMovies() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let title = card.getAttribute("data-title");
+        if(title.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+let fearOn = false;
+
+function toggleFear() {
+    fearOn = !fearOn;
+
+    if(fearOn) {
+        document.body.style.background = "#000";
+        document.body.style.color = "red";
+    } else {
+        document.body.style.background = "#111";
+        document.body.style.color = "white";
+    }
+
+</script>
+</head>
+<body>
+
+<header>
+    <h1>WebSeries Stream</h1>
+    <nav>
+        <a href="homepage1.html">Home</a>
+        <a href="series.html">Series</a>
+        <a href="movies.html">Movies</a>
+        
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Unlimited Web Series, Anytime, Anywhere</h2>
+    <p>Watch trending and latest web series in HD quality.</p>
+    <a href="open.html" class="btn">Start Watching</a>
+</section>
+
+<section class="section">
+    <h2>Popular Categories</h2>
+    <div class="cards">
+        <div class="card">
+<a href="C:\mnsy\hey anjali movie.mp4">
+
+           <img src="C:\mnsy\hey anjali.jfif">
+</a>
+
+            <h3>HEY ANJALI</h3>
+        </div>
+        <div class="card">
+<a href="C:\mnsy\classmates movie.mp4">
+            <img src="C:\mnsy\classmates.jpg"alt="Comedy">
+</a>
+
+            <h3>classmates</h3>
+        </div>
+        <div class="card">
+<a href="C:\mnsy\kushalamena ammayi movie.mp4">
+            <img src="C:\mnsy\ka.jfif"alt="Drama">
+</a>
+
+            <h3>kushalamena Ammayi</h3>
+        </div>
+        <div class="card">
+<a href="C:\mnsy\just merrid movie.mp4">
+            <img src="C:\mnsy\justmerrid.jpg" alt="Thriller">
+</a>
+
+            <h3>just married</h3>
+        </div>
+<div class="card">
+<a href="C:\mnsy\raju-gari-gadhi- horror.mp4">
+            <img src="C:\mnsy\r.jfif">
+</a>
+
+            <h3>Raju gari gadhi</h3>
+        </div>
+<div class="card">
+<a href="C:\mnsy\horror-aakasha-ganga.mp4">
+            <img src="C:\mnsy\horror-aakasha-ganga.jfif">
+</a>
+
+            <h3>Aakasha-Ganga</h3>
+        </div>
+<div class="card">
+<a href="C:\mnsy\kanchana3.mp4">
+            <img src="C:\mnsy\kanchana3.jfif">
+</a>
+
+            <h3>kanchana3</h3>
+        </div>
+<div class="card">
+<a href="C:\mnsy\paapa-telugu-horror.mp4">
+            <img src="C:\mnsy\paapa.jfif">
+</a>
+            <h3>paapa</h3>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 WebSeries Stream | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
