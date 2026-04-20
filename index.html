@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Screenova</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ALL PAGES */
+.page {
+    display: none;
+    height: 100vh;
+}
+
+/* ACTIVE */
+.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LOGO */
+#logoPage {
+    justify-content: center;
+    align-items: center;
+    background: url("SCREENOVA LOgo.png") center/cover;
+}
+
+/* REGISTER + LOGIN */
+#registerPage, #loginPage {
+    justify-content: center;
+    align-items: center;
+}
+
+#registerPage {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW8PmqVTwVkgMmtFjkGvRijkSSFElhL4LCjA&s') center/cover;
+}
+
+#loginPage {
+    background: url('https://st4.depositphotos.com/1020618/23786/i/450/depositphotos_237863150-stock-photo-old-style-movie-projector-close.jpg') center/cover;
+}
+
+/* BOX */
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* INPUT */
+input {
+    padding: 10px;
+    margin: 10px;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* HOME */
+#homePage {
+    background: #111;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: black;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* NAV */
+nav a {
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 60vh;
+    background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* BUTTON */
+.btn {
+    background: red;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+.section {
+    display: none;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* CARD */
+.card {
+    width: 200px;
+    background: #222;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.card img {
+    width: 100%;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGO -->
+<div id="logoPage" class="page active">
+    <button onclick="showPage('registerPage')">Register</button>
+</div>
+
+<!-- REGISTER -->
+<div id="registerPage" class="page">
+    <div class="box">
+        <h2>Register</h2>
+        <input id="regUser" placeholder="Username"><br>
+        <input id="regPass" type="password" placeholder="Password"><br>
+        <button onclick="registerUser()">Register</button>
+        <p onclick="showPage('loginPage')" style="color:red;cursor:pointer;">Login</p>
+    </div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginPage" class="page">
+    <div class="box">
+        <h2>Login</h2>
+        <input id="logUser" placeholder="Username"><br>
+        <input id="logPass" type="password" placeholder="Password"><br>
+        <button onclick="loginUser()">Login</button>
+    </div>
+</div>
+
+<!-- HOME -->
+<div id="homePage" class="page">
+
+<header>
+    <h2 style="color:red;">WebSeries Stream</h2>
+
+    <nav>
+        <a href="homepage1.html">Home</a>
+        <a href="series.html">Series</a>
+        <a href="movies.html">Movies</a>
+        <a onclick="logout()">Logout</a>
+    </nav>
+</header>
+
+<!-- HOME SECTION -->
+<div id="homeSection" class="section" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="hero">
+        <h1>Unlimited Web Series</h1>
+        <div class="btn" onclick="showSection('moviesSection')">Start Watching</div>
+    </div>
+</div>
+
+<!-- SERIES -->
+<div id="seriesSection" class="section">
+
+<div class="card">
+<a href="C:\mnsy\hey anjali movie.mp4">
+<img src="C:\mnsy\hey anjali.jfif">
+</a>
+<h3>HEY ANJALI</h3>
+</div>
+
+<div class="card">
+<a href="C:\mnsy\classmates movie.mp4">
+<img src="C:\mnsy\classmates.jpg">
+</a>
+<h3>CLASSMATES</h3>
+</div>
+
+</div>
+
+<!-- MOVIES -->
+<div id="moviesSection" class="section">
+
+<div class="card">
+<a href="C:\mnsy\kanchana3.mp4">
+<img src="C:\mnsy\kanchana3.jfif">
+</a>
+<h3>KANCHANA 3</h3>
+</div>
+
+<div class="card">
+<a href="C:\mnsy\paapa-telugu-horror.mp4">
+<img src="C:\mnsy\paapa.jfif">
+</a>
+<h3>PAAPA</h3>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* PAGE SWITCH */
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+/* SECTION SWITCH */
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = "none");
+    document.getElementById(id).style.display = "flex";
+}
+
+/* REGISTER */
+function registerUser() {
+    let u = regUser.value;
+    let p = regPass.value;
+
+    if(!u || !p) return alert("Fill all fields");
+
+    if(localStorage.getItem(u)) return alert("User exists");
+
+    localStorage.setItem(u, p);
+    alert("Registered!");
+    showPage('loginPage');
+}
+
+/* LOGIN */
+function loginUser() {
+    let u = logUser.value;
+    let p = logPass.value;
+
+    let stored = localStorage.getItem(u);
+
+    if(stored === p) {
+        alert("Login success");
+        showPage('homePage');
+        showSection('homeSection');
+    } else {
+        alert("Invalid login");
+    }
+}
+
+/* LOGOUT */
+function logout() {
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
